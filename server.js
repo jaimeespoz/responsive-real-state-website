@@ -27,6 +27,7 @@ app.use(bodyParser.json());
 
 // static files
 app.use(express.static(path.join(__dirname, "assets")));
+app.use(express.static(path.join(__dirname, "dist")));
 
 // routes
 app.use(routes);
