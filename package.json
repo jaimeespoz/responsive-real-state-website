@@ -4,11 +4,12 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "minify-html": "html-minifier views/index.html --collapse-whitespace --output=dist/index.html ",
+    "minify-html": "cp -r views/index.html dist/index.html ",
     "optimize-css": "postcss assets/css/styles.css --use autoprefixer cssnano postcss-pxtorem --output dist/css/styles.css --no-map",
     "transpile-js": "babel assets/js/main.js -o dist/js/main.js --presets=@babel/preset-env",
     "minify-js": "uglifyjs dist/js/main.js --compress -o dist/js/main.js",
-    "build": "npm run minify-html && npm run optimize-css && npm run transpile-js && npm run minify-js && cp -r assets/img/. dist/img && cp -r assets/plugin/. dist/plugin"
+    "build": "npm run minify-html && npm run optimize-css && npm run transpile-js && npm run minify-js && cp -r assets/img/. dist/img && cp -r assets/plugin/. dist/plugin",
+    "minify-html-back": "html-minifier views/index.html --collapse-whitespace --output=dist/index.html "
   },
   "keywords": [],
   "author": "postcss ",
