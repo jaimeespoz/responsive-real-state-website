@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "minify-html": "html-minifier-terser views/index.html --collapse-whitespace --output=dist/index.html ",
+    "minify-html": "html-minifier views/index.html --collapse-whitespace --output=dist/index.html ",
     "optimize-css": "postcss assets/css/styles.css --use autoprefixer cssnano postcss-pxtorem --output dist/css/styles.css --no-map",
     "transpile-js": "babel assets/js/main.js -o dist/js/main.js --presets=@babel/preset-env",
     "minify-js": "uglifyjs dist/js/main.js --compress -o dist/js/main.js",
@@ -18,6 +18,7 @@
     "dotenv": "^16.0.3",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
+    "html-minifier": "^4.0.0",
     "html-minifier-terser": "^7.2.0",
     "path": "^0.12.7",
     "uglify-js": "^3.17.4"
