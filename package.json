@@ -2,18 +2,34 @@
   "name": "responsive-real-state-website",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "minify-html": "html-minifier-terser views/index.html --collapse-whitespace --output=dist/index.html ",
+    "optimize-css": "postcss assets/css/styles.css --use autoprefixer cssnano postcss-pxtorem --output dist/styles.css --no-map",
+    "transpile-js": "babel assets/js/main.js -o dist/main.js --presets=@babel/preset-env",
+    "minify-js": "uglifyjs dist/main.js --compress -o dist/main.js",
+    "build": "npm run minify-html && npm run optimize-css && npm run transpile-js && npm run minify-js"
   },
   "keywords": [],
-  "author": "",
+  "author": "postcss ",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
-    "path": "^0.12.7"
+    "html-minifier-terser": "^7.2.0",
+    "path": "^0.12.7",
+    "uglify-js": "^3.17.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "autoprefixer": "^10.4.14",
+    "cssnano": "^6.0.1",
+    "postcss": "^8.4.23",
+    "postcss-cli": "^10.1.0",
+    "postcss-pxtorem": "^6.0.0"
   }
 }
